@@ -1,0 +1,7 @@
+@use 'error2.scss';
+
+$error: 200;
+
+.error {
+    width: $error * 0.5;
+}

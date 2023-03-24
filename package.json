@@ -1,0 +1,36 @@
+{
+  "name": "sass-migrator-loader",
+  "version": "1.0.0",
+  "description": "\"# sass-migrator-loader\"",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist --copy-files --no-comments"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kogoshvili/sass-migrator-loader.git",
+    "postbuild": "npm run validate:runtime"
+  },
+  "keywords": [
+    "sass",
+    "migrator",
+    "sass-migrator",
+    "loader",
+    "sass-migrator-loader"
+  ],
+  "author": "Andrian Kogoshvili",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kogoshvili/sass-migrator-loader/issues"
+  },
+  "homepage": "https://github.com/Kogoshvili/sass-migrator-loader#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0"
+  },
+  "dependencies": {
+    "sass-migrator": "^1.7.3"
+  },
+  "peerDependencies": {
+    "webpack": "^5.0.0"
+  }
+}
