@@ -1,0 +1,7 @@
+@import '~/error4.scss'; // import from node_modules
+
+$error3: 200;
+
+.error3 {
+    width: $error3 / 2;
+}

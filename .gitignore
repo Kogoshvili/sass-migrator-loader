@@ -1,4 +1,8 @@
-dist
-node_modules
-test-project/node_modules
-test-project/dist
+/dist
+/node_modules
+/test-project4/node_modules/*
+!/test-project4/node_modules/error4.scss
+/test-project4/dist
+/test-project5/node_modules/*
+!/test-project5/node_modules/error4.scss
+/test-project5/dist

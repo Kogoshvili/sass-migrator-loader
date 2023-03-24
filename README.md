@@ -1,6 +1,6 @@
 ### Sass-Migrator Loader
 
-This is a webpack (^5.0.0) loader alternative to cli [sass-migrator](https://sass-lang.com/documentation/cli/migrator) ([NPM](https://www.npmjs.com/package/sass-migrator)) tool.
+This is a webpack (^4.0.0 || ^5.0.0) loader alternative to cli [sass-migrator](https://sass-lang.com/documentation/cli/migrator) ([NPM](https://www.npmjs.com/package/sass-migrator)) tool.
 
 if you have a lot of sass files and you want to migrate them to the new syntax, you should use cli tool.
 However, if you have imports from node_modules then you can use this loader instead.
@@ -40,6 +40,7 @@ module.exports = {
 #### Options
 | Name | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `migrations` | `string[]` | `['division', 'media-logic', 'module', 'namespace', 'strict-unary']` | list of [migrations](https://sass-lang.com/documentation/cli/migrator#migrations) to apply |
+| `migrations` | `string[]` | `['division', 'media-logic', 'module', 'namespace', 'strict-unary']` | list of [migrations](https://sass-lang.com/documentation/cli/migrator#migrations) to apply, you can remove irrelevant once for better performance |
 | `flags` | `string[]` | `[]` | list of [flags](https://sass-lang.com/documentation/cli/migrator#global-options) to apply |
+| `nodeModulesPrefix` | `string` | `~` | prefix for node_modules imports |
 

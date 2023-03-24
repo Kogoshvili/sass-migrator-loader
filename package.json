@@ -1,6 +1,6 @@
 {
   "name": "sass-migrator-loader",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "\"# sass-migrator-loader\"",
   "main": "dist/index.js",
   "scripts": {
@@ -25,12 +25,14 @@
   },
   "homepage": "https://github.com/Kogoshvili/sass-migrator-loader#readme",
   "devDependencies": {
-    "@babel/cli": "^7.21.0"
+    "@babel/cli": "^7.21.0",
+    "@babel/preset-env": "^7.20.2"
   },
   "dependencies": {
+    "loader-utils": "^2.0.4",
     "sass-migrator": "^1.7.3"
   },
   "peerDependencies": {
-    "webpack": "^5.0.0"
+    "webpack": "^4.0.0 || ^5.0.0"
   }
 }

@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch via NPM",
+            "name": "Run 4",
             "request": "launch",
             "runtimeArgs": [
                 "run-script",
@@ -16,7 +16,21 @@
                 "<node_internals>/**"
             ],
             "type": "node",
-            "cwd": "${workspaceFolder}/test-project"
+            "cwd": "${workspaceFolder}/test-project4"
+        },
+        {
+            "name": "Run 5",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "build"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "cwd": "${workspaceFolder}/test-project5"
         },
     ]
 }
