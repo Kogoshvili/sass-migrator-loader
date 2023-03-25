@@ -4,14 +4,15 @@ const exec = require("child_process").exec;
 const loaderUtils = require('loader-utils');
 
 module.exports = function (source, map, meta) {
+  const rootDir = this.rootContext;
   const callback = this.async();
   const options = this?.getOptions?.() || loaderUtils.getOptions(this);
   const { migrations, flags, nodeModulesPrefix } = options;
 
   const sourcePath = this.resourcePath;
   const sourceExt = path.extname(sourcePath);
-  migrations
-  const content = importContent(source, sourcePath, nodeModulesPrefix);
+
+  const content = importContent(source, sourcePath, rootDir, nodeModulesPrefix);
   const tempFile = path.resolve(path.join(__dirname, '..', `./temp.${sourceExt}`));
 
   fs.writeFileSync(tempFile, content);
@@ -24,7 +25,7 @@ module.exports = function (source, map, meta) {
   });
 }
 
-function importContent(source, sourcePath, nodeModulesPrefix) {
+function importContent(source, sourcePath, rootDir, nodeModulesPrefix) {
   const regex = new RegExp(/@(import|use)( ?)[\"'](.+)[\"'];/g);
   let match;
   let content = source;
@@ -33,12 +34,12 @@ function importContent(source, sourcePath, nodeModulesPrefix) {
     let importPath = match[3];
 
     if (importPath.startsWith(nodeModulesPrefix)) {
-      importPath = importPath.replace(nodeModulesPrefix, '../node_modules/');
+      importPath = importPath.replace(nodeModulesPrefix, `${rootDir}/node_modules/`);
     }
 
     const importFullPath = path.resolve(path.dirname(sourcePath), importPath);
     const importSource = fs.readFileSync(importFullPath, 'utf8');
-    const nestedContent = importContent(importSource, importFullPath, nodeModulesPrefix);
+    const nestedContent = importContent(importSource, importFullPath, rootDir, nodeModulesPrefix);
     content = content.replace(match[0], nestedContent);
   }
 
