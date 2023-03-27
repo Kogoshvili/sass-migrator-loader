@@ -40,7 +40,9 @@ module.exports = {
 #### Options
 | Name | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `migrations` | `string[]` | `['division', 'media-logic', 'module', 'namespace', 'strict-unary']` | list of [migrations](https://sass-lang.com/documentation/cli/migrator#migrations) to apply, you can remove irrelevant once for better performance |
+| `migrations` | `string[]` | `['division']` | list of [migrations](https://sass-lang.com/documentation/cli/migrator#migrations) to apply, you can remove irrelevant once for better performance |
 | `flags` | `string[]` | `[]` | list of [flags](https://sass-lang.com/documentation/cli/migrator#global-options) to apply |
 | `nodeModulesPrefix` | `string` | `~` | prefix for node_modules imports |
+| `srcPrefix` | `string` | `''` | prefix for node_modules imports |
+
 

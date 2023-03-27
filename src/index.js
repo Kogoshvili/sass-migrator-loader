@@ -12,7 +12,7 @@ module.exports = function (source, map, meta) {
         migrations,
         flags,
         nodeModulesPrefix = '~',
-        srcPrefix = 'app'
+        srcPrefix = ''
     } = options;
 
     const sourcePath = this.resourcePath;
@@ -45,11 +45,11 @@ function importContent(source, sourcePath, rootDir, nodeModulesPrefix, srcPrefix
             importPath = importPath.replace(srcPrefix, `${rootDir}/src/`);
         } else if (importPath.startsWith(`${nodeModulesPrefix}${srcPrefix}`)) {
             importPath = importPath.replace(`${nodeModulesPrefix}${srcPrefix}`, `${rootDir}/src/`);
-        } else if (importPath.startsWith('src')) {
-            importPath = importPath.replace('src', `${rootDir}/src/`);
+        } else if (importPath.startsWith('src/')) {
+            importPath = importPath.replace('src/', `${rootDir}/src/`);
         } else if (importPath.startsWith(nodeModulesPrefix)) {
             importPath = importPath.replace(nodeModulesPrefix, `${rootDir}/node_modules/`);
-        } else if (importPath.startsWith('@')) {
+        } else if (importPath.startsWith('@') && !importPath.startsWith('@/')) {
             importPath = `${rootDir}/node_modules/${importPath}`;
         }
 
